@@ -26,7 +26,8 @@ if [ -f conf/assignment.txt ]; then
     # This is just one example of how you could find an associated assignment
     assignment=`cat conf/assignment.txt`
     if [ -f ./assignment-autotest/test/${assignment}/assignment-test.sh ]; then
-        echo "Executing assignment test script"
+        echo "Executing assignment test script ./assignment-autotest/test/${assignment}/assignment-test.sh $test_dir"
+        cp ./script-helpers-8.sh ./assignment-autotest/test/${assignment}/script-helpers
         ./assignment-autotest/test/${assignment}/assignment-test.sh $test_dir
         rc=$?
         if [ $rc -eq 0 ]; then
